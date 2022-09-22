@@ -1,0 +1,73 @@
+
+
+
+
+<h4 class="d-flex justify-content-center">Data from Backend Server</h4>
+
+<!-- OLD TABLE -->
+<!-- <table class = "table">
+    <thead>
+        <th scope ="col">ID</th>
+        <th scope ="col">Name</th>
+        <th scope ="col">Username</th>
+        <th scope ="col">Email</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userData">
+            <td>{{user.id}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+        </tr>
+    </tbody>
+</table> -->
+
+
+<!-- <ul class="users">
+  <li *ngFor="let user of userData">
+    <button type="button">
+      <span class="badge">{{user.id}}</span>
+      <span class="name">{{user.firstName}}</span>
+    </button>
+  </li>
+</ul> -->
+<form class="form-group" (submit)="executeSearch()">
+    <div class="float-right">
+        <input class="form-control-sm" [(ngModel)]="searchString" [ngModelOptions]="{standalone: true}" type="search" placeholder="Type query">
+        <button class="btn btn-outline-success " type="submit">Search</button>
+    </div>
+    
+ </form>
+
+<table mat-table [dataSource]="userDataSource" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8 user-table" >
+    <ng-container matColumnDef="id">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef sortActionDescription="Sort by number">
+        ID
+        </th>
+        <td mat-cell *matCellDef="let user"><strong>{{user.id}}</strong></td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+        Name
+        </th>
+        <td mat-cell *matCellDef="let user"> {{user.firstName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by username">
+        Username
+        </th>
+        <td mat-cell *matCellDef="let user"> {{user.username}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by email">
+        Email
+        </th>
+        <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+ 
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="#">Angular</a>
+        <div class= "ms-auto">
+            <!-- Left links -->
+            <ul class="navbar-nav mb-1 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" className="nav-link" routerLink="/profile-page-component" >Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active"  className="nav-link" routerLink="/user-data-display-component" >Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" className="nav-link" routerLink="/registration-form-component" >Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+<!-- <app-user-data-display></app-user-data-display> -->
+<!-- <app-profile-page></app-profile-page> -->
+<div class= "main-container">
+<router-outlet></router-outlet>
+</div>
+<!-- <app-registration-form></app-registration-form> -->
+

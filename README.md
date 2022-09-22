@@ -8,6 +8,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ![Alt text](./images/about_me.png?raw=true)
 ![Alt text](./images/register.png?raw=true)
+![Alt text](./images/db.png?raw=true)
 ![Alt text](./images/backend_data.png?raw=true)
 ![Alt text](./images/sorting.png?raw=true)
 ![Alt text](./images/search.png?raw=true)

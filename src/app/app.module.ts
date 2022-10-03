@@ -9,7 +9,7 @@ import { RegistrationFormComponent } from './registration-form/registration-form
 import { UserDataDisplayComponent } from './user-data-display/user-data-display.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule , } from '@angular/forms';
 import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
@@ -38,6 +38,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     FormsModule,
     MatDialogModule,
+    
     
   ],
   providers: [

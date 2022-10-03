@@ -14,21 +14,33 @@
             <div class="col">
               <input class="form-control" id="firstName" type="text" formControlName="firstName" placeholder="First Name">
             </div>
+            <div [hidden]="regForm.controls['firstName'].valid || regForm.controls['firstName'].untouched">
+              Invalid First Name
+            </div>
           
             <div class="col">
               <input class="form-control" id="lastName" type="text" formControlName="lastName" placeholder="Last Name">
+            </div>
+            <div [hidden]="regForm.controls['lastName'].valid || regForm.controls['lastName'].untouched">
+              Invalid Last Name
             </div>
           </div>
 
           <div class="form-group row"> 
             <div class="col">
               <input class="form-control" id="birthday" type="text" formControlName="birthday" placeholder="Birthday">
+              <div [hidden]="regForm.controls['birthday'].valid || regForm.controls['birthday'].untouched">
+                Invalid Birthday
+              </div>
             </div>
           </div>
 
           <div class="form-group row"> 
             <div class="col">
               <input class="form-control" id="email" type="text" formControlName="email" placeholder="Email">
+              <div [hidden]="regForm.controls['email'].valid || regForm.controls['email'].untouched">
+                Invalid Email
+              </div>
             </div>
           </div>
         
@@ -36,11 +48,17 @@
             <div class="col">
               <input class="form-control" id="phoneNum" type="text" formControlName="phoneNum" placeholder="Phone Number">
             </div>
+            <div [hidden]="regForm.controls['phoneNum'].valid || regForm.controls['phoneNum'].untouched">
+              Invalid Phone Number
+            </div>
           </div>
         
           <div class="form-group row"> 
             <div class="col">
               <input class="form-control" id="username" type="text" formControlName="username" placeholder="Username">
+            </div>
+            <div [hidden]="regForm.controls['username'].valid || regForm.controls['username'].untouched">
+              Invalid Username
             </div>
           </div>
         
@@ -48,9 +66,15 @@
             <div class="col">
               <input class="form-control" id="city" type="text" formControlName="city" placeholder="City">
             </div>
+            <div [hidden]="regForm.controls['city'].valid || regForm.controls['city'].untouched">
+              Invalid City
+            </div>
           
             <div class="col">
               <input class="form-control" id="state" type="text" formControlName="state" placeholder="State">
+            </div>
+            <div [hidden]="regForm.controls['state'].valid || regForm.controls['state'].untouched">
+              Invalid State
             </div>
           </div>
 
@@ -58,7 +82,11 @@
             <div class="col">
               <input class="form-control" id="zipCode" type="text" formControlName="zipCode" placeholder="Zip Code">
             </div>
+            <div [hidden]="regForm.controls['zipCode'].valid || regForm.controls['zipCode'].untouched">
+              Invalid Zipcode
+            </div>
           </div>
+          
 
           <div class="form-group form-check"> 
               <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
@@ -67,7 +95,7 @@
               </label>
           </div>
           
-          <button class="btn btn-primary btn-block" type="submit">Submit</button>
+          <button class="btn btn-primary btn-block" type="submit" >Submit</button>
         </form>
 
       </div>

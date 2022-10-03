@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, Validator, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Registration } from '../registration';
 
@@ -10,42 +10,72 @@ import { Registration } from '../registration';
   encapsulation: ViewEncapsulation.None
 })
 export class RegistrationFormComponent {
-  // postRegistrationData = {
-  //   firstName: 'FHGFHGFGH',
-  //   lastName: 'Liljjkng',
-  //   email: 'String@gmail.com',
-  //   phoneNum: '1234567890',
-  //   username: 'guy1234',
-  //   city: 'Brooklyn',
-  //   state: 'NY',
-  //   zipCode: '10923',
-  // }
  
   regForm = this.formBuilder.group({
-    firstName: '',
-    lastName: '',
-    birthday: '',
-    email: ['', Validators.email],
-    phoneNum: '',
-    username: '',
-    city: '',
-    state: '',
-    zipCode:'',
+    firstName: new FormControl('', [
+      Validators.required,
+     
+    ]),
+    lastName: new FormControl('', [
+      Validators.required,
+     
+    ]),
+    birthday: new FormControl('', [
+      Validators.required,
+    
+    ]),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email,
+    ]),
+    phoneNum: new FormControl('', [
+      Validators.required,
+      Validators.minLength(10),
+    ]),
+    username: new FormControl('', [
+      Validators.required,
+    ]),
+    city: new FormControl('', [
+      Validators.required,
+    ]),
+    state: new FormControl('', [
+      Validators.required,
+    ]),
+    zipCode: new FormControl('', [
+      Validators.minLength(5),
+    ]),
   });
-
+  url = 'http://localhost:3000/api/post';
   // newReg = new Registration('helo', '', '','', '', '','', '');
 
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
   ) {}
-  url = 'http://localhost:3000/api/post';
+
+
+  isFormValid(): boolean{
+    for (const field in this.regForm.controls) { 
+      const control = this.regForm.get(field)?.valid;
+      if(control==null){
+        return false;
+      }else if(!control){
+        return control;
+      }
+    }
+    return false;
+  }
+
   onSubmit(): void {
-    console.log('sdfdfg');
-    console.log('Registration form has been submitted', this.regForm.value);
-    const req = this.http.post(this.url, this.regForm.value, {responseType: 'text'})
-    req.subscribe();
-    this.regForm.reset();
+    if(this.regForm.valid){
+      console.log('Registration form has been submitted', this.regForm.value);
+      const req = this.http.post(this.url, this.regForm.value, {responseType: 'text'})
+      req.subscribe();
+      this.regForm.reset();
+    }else{
+      console.log('Form Invalid');
+    }
+    
   }
 
   // Angular calls ngOnInit() shortly after creating a component. It's a good place to put initialization logic.

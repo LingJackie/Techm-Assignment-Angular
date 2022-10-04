@@ -1,4 +1,8 @@
-.main-container{
-    background-color: #ae51cd;
+.profile-container{
+    background-color: #ae51cd ;
+    height: 100vh;
  }
- 
+/* :host {
+    display: block;
+    background-color: red;
+} */
